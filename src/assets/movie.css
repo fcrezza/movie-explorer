@@ -1,0 +1,93 @@
+.movie-detail-container {
+  height: 450px;
+  border-radius: 10px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.movie-detail-wrapper {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: inherit;
+  display: flex;
+  color: var(--text-secondary);
+}
+
+.movie-detail-poster {
+  border-radius: 10px;
+  display: block;
+  margin-right: 2rem;
+  width: auto;
+  height: auto;
+}
+
+.movie-detail-vote {
+  border-radius: 50%;
+  background: var(--button-primary);
+  display: inline-block;
+  padding: 5px;
+  height: 25px;
+  width: 25px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.movie-detail-vote-text {
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.movie-detail-title {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+.movie-detail-release-date {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.movie-detail-genre-container {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.movie-detail-genre-item {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.movie-detail-genre-item:not(:first-child)::before {
+  content: ", ";
+}
+
+.movie-detail-overview {
+  font-size: 1rem;
+  line-height: 25px;
+  margin: 0;
+}
+
+.similar-container {
+  margin-top: 4rem;
+}
+
+.similar-title {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.similar-items-container {
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: flex-start;
+  grid-gap: 1.5rem;
+}

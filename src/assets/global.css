@@ -1,0 +1,10 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#main {
+  max-width: 1114px;
+  min-height: calc(100vh - 400px);
+  margin: auto;
+  padding: 3rem 0;
+}
