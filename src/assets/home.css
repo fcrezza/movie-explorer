@@ -1,6 +1,0 @@
-.movies-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: flex-start;
-  grid-gap: 1.5rem;
-}

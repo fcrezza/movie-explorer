@@ -80,14 +80,6 @@
 
 .similar-title {
   color: var(--text-primary);
-  margin: 0;
+  margin: 0 0 3rem;
   font-size: 1.8rem;
-}
-
-.similar-items-container {
-  padding: 3rem 0;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: flex-start;
-  grid-gap: 1.5rem;
 }

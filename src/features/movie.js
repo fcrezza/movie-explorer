@@ -1,8 +1,7 @@
 import queryString from "query-string";
 import {format} from "date-fns";
 
-import axios from "../utils/axios";
-import getConfiguration from "../utils/configuration";
+import {axios, getConfiguration, buildListOfMovies} from "../utils";
 import "../assets/movie.css";
 
 window.addEventListener("DOMContentLoaded", load);
@@ -36,9 +35,17 @@ async function load() {
     const configuration = await getConfiguration();
     const {data: similar} = await axios.get(`/movie/${id}/similar`);
     loader.remove();
-    const similarElement = buildSimilarElement(similar, configuration);
-    main.append(similarElement);
+    const similarContainer = document.createElement("div");
+    similarContainer.classList.add("similar-container");
+    const similarTitle = document.createElement("h2");
+    similarTitle.classList.add("similar-title");
+    similarTitle.textContent = "Similar Movies";
+    const appMovies = document.createElement("app-movies");
+    appMovies.movies = buildListOfMovies(similar.results, configuration);
+    similarContainer.append(similarTitle, appMovies);
+    main.append(similarContainer);
   } catch (error) {
+    console.log(error);
     loader.remove();
     const errorFallback = document.createElement("app-error");
     errorFallback.setAttribute("data-error", true);
@@ -83,30 +90,4 @@ function buildDetailElement(detail, configuration) {
     `;
 
   return movieDetailContainer;
-}
-
-function buildSimilarElement(similar, configuration) {
-  const similarContainer = document.createElement("div");
-  similarContainer.classList.add("similar-container");
-  similarContainer.innerHTML = `
-  <h2 class="similar-title">Similar Movies</h2>
-  <div class="similar-items-container">
-    ${similar.results
-      .map(({title, id, poster_path}) => {
-        const poster = poster_path
-          ? `${configuration.images.secure_base_url}/w154/${poster_path}`
-          : "https://via.placeholder.com/154x231";
-
-        return `
-        <app-moviecard
-          data-id="${id}"
-          data-poster="${poster}"
-          data-title="${title}"
-        ></app-moviecard>`;
-      })
-      .join("")}
-  </div>
-  `;
-
-  return similarContainer;
 }

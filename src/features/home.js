@@ -1,6 +1,4 @@
-import axios from "../utils/axios";
-import getConfiguration from "../utils/configuration";
-import "../assets/home.css";
+import {axios, getConfiguration, buildListOfMovies} from "../utils";
 
 window.addEventListener("DOMContentLoaded", load);
 
@@ -14,33 +12,13 @@ async function load() {
     const configuration = await getConfiguration();
     const {data: movies} = await axios.get("/discover/movie");
     loader.remove();
-    const listOfMovies = buildListOfMovies(movies, configuration);
-    main.append(listOfMovies);
+    const appMovies = document.createElement("app-movies");
+    appMovies.movies = buildListOfMovies(movies.results, configuration);
+    main.append(appMovies);
   } catch (error) {
     loader.remove();
     const errorFallback = document.createElement("app-error");
     errorFallback.setAttribute("data-error", true);
     main.append(errorFallback);
   }
-}
-
-function buildListOfMovies(movies, configuration) {
-  const moviesContainer = document.createElement("div");
-  moviesContainer.classList.add("movies-container");
-  moviesContainer.innerHTML = movies.results
-    .map(({poster_path, title, id}) => {
-      const poster = poster_path
-        ? `${configuration.images.secure_base_url}/w154/${poster_path}`
-        : "https://via.placeholder.com/154x231";
-
-      return `
-        <app-moviecard
-          data-id="${id}"
-          data-poster="${poster}"
-          data-title="${title}"
-        ></app-moviecard>`;
-    })
-    .join("");
-
-  return moviesContainer;
 }

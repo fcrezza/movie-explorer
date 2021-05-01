@@ -9,5 +9,6 @@ import "./components/Loading";
 import "./components/Error";
 import "./components/Button";
 import "./components/MovieCard";
+import "./components/Movies";
 import "./assets/theme.css";
 import "./assets/global.css";

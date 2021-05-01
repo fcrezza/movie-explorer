@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode=development",
+    "dev": "webpack serve --mode=development --open",
     "build": "webpack --mode=production",
     "lint": "eslint src",
     "format": "prettier --check --write \"!dist\" \"**/*.{js, json}\"",
@@ -39,10 +39,5 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "prettier": "@fcrezza/prettier-config",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run format"
-    }
-  }
+  "prettier": "@fcrezza/prettier-config"
 }
