@@ -21,6 +21,7 @@
   border-radius: 10px;
   display: block;
   margin-right: 2rem;
+  max-width: 300px;
   width: auto;
   height: auto;
 }
@@ -57,10 +58,12 @@
 .movie-detail-genre-container {
   margin-bottom: 1rem;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .movie-detail-genre-item {
   margin: 0;
+  line-height: 26px;
   font-size: 1rem;
 }
 
@@ -82,4 +85,46 @@
   color: var(--text-primary);
   margin: 0 0 3rem;
   font-size: 1.8rem;
+}
+
+@media (max-width: 1024px) {
+  .movie-detail-container {
+    margin: 0 2rem;
+  }
+
+  .similar-title {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-detail-container {
+    background: none !important;
+    height: auto;
+  }
+
+  .movie-detail-wrapper {
+    flex-direction: column;
+    padding: 0;
+    background: none;
+    color: var(--text-primary);
+  }
+
+  .movie-detail-content {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-detail-container {
+    margin: 0 1rem;
+  }
+
+  .movie-detail-poster {
+    margin: 0 auto;
+  }
+
+  .similar-title {
+    margin-left: 1rem;
+  }
 }

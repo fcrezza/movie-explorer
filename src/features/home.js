@@ -3,7 +3,7 @@ import {axios, getConfiguration, buildListOfMovies} from "../utils";
 window.addEventListener("DOMContentLoaded", load);
 
 async function load() {
-  const main = document.getElementById("main");
+  const main = document.querySelector("main");
   const loader = document.createElement("app-loading");
   loader.setAttribute("data-loading", "true");
 

@@ -29,7 +29,20 @@ class Footer extends HTMLElement {
         .footer-text {
           margin: 0;
           font-size: 1rem;
-          color: var(--text-primary-50)
+          color: var(--text-primary-50);
+          line-height: 28px;
+        }
+
+        @media (max-width: 1024px) {
+          .footer {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer {
+            padding: 2rem 1rem;
+          }
         }
       </style>
       <div class="footer">

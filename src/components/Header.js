@@ -34,6 +34,24 @@ class Header extends HTMLElement {
           color: var(--text-primary);
           margin: 0;
         }
+
+        @media (max-width: 1024px) {
+          .header {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .header {
+            padding: 2rem 1rem;
+            flex-direction: column;
+          }
+
+          .title-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+          }
+        }
       </style>
       <div class="header">
         <div class="title-container">

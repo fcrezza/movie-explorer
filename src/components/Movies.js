@@ -46,6 +46,20 @@ class MovieCard extends HTMLElement {
         width: 100%;
         height: auto;
       }
+
+      @media (max-width: 1024px) {
+        .movies-container {
+          grid-template-columns: repeat(4, 1fr);
+          padding: 0 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .movies-container {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 0 1rem;
+        }
+      }
     </style>
     <div class="movies-container">
       ${this._movies

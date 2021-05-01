@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", load);
 
 async function load() {
   const {query} = queryString.parse(location.search);
-  const main = document.getElementById("main");
+  const main = document.querySelector("main");
   const loader = document.createElement("app-loading");
   loader.setAttribute("data-loading", "true");
 

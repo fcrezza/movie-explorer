@@ -38,6 +38,12 @@ class Search extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
     <style>
+      .search-container {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+      }
+
       .search-input {
         background-color: var(--background-secondary);
         border: 0;
@@ -45,7 +51,7 @@ class Search extends HTMLElement {
         padding: 10px;
         margin-right: 0.3rem;
         font-size: 1rem;
-        width: 300px;
+        flex: 1;
       }
 
       .search-button {
